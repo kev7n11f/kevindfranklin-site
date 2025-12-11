@@ -105,33 +105,41 @@ function BookShowcase({
                 perspective: "1000px",
               }}
             >
-              {/* Book cover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary-light to-secondary border border-primary/20 rounded-2xl">
-                {/* Spine shadow */}
-                <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/30 to-transparent" />
+              {/* Book cover image */}
+              {book.coverImage ? (
+                <img 
+                  src={book.coverImage} 
+                  alt={`${book.title} cover`}
+                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary-light to-secondary border border-primary/20 rounded-2xl">
+                  {/* Spine shadow */}
+                  <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/30 to-transparent" />
 
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                  {/* Decorative top element */}
-                  <div className="w-16 h-1 bg-primary mb-8" />
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                    {/* Decorative top element */}
+                    <div className="w-16 h-1 bg-primary mb-8" />
 
-                  {/* Title */}
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2 leading-tight">
-                    {book.title}
-                  </h3>
+                    {/* Title */}
+                    <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2 leading-tight">
+                      {book.title}
+                    </h3>
 
-                  {/* Subtitle */}
-                  <p className="text-sm text-primary mb-8">
-                    {book.subtitle}
-                  </p>
+                    {/* Subtitle */}
+                    <p className="text-sm text-primary mb-8">
+                      {book.subtitle}
+                    </p>
 
-                  {/* Author */}
-                  <p className="text-sm text-foreground/60">Kevin D. Franklin</p>
+                    {/* Author */}
+                    <p className="text-sm text-foreground/60">Kevin D. Franklin</p>
 
-                  {/* Decorative bottom element */}
-                  <div className="w-16 h-1 bg-primary mt-8" />
+                    {/* Decorative bottom element */}
+                    <div className="w-16 h-1 bg-primary mt-8" />
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Shine effect */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />

@@ -60,65 +60,43 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
-              {/* Abstract visual element */}
-              <div className="aspect-square rounded-3xl glass overflow-hidden relative">
+              {/* Headshot with styling */}
+              <div className="aspect-square rounded-3xl glass overflow-hidden relative max-w-md mx-auto">
                 {/* Animated gradient background */}
                 <div 
                   className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-secondary animate-gradient-shift"
                   style={{ backgroundSize: "200% 200%" }}
                 />
                 
-                {/* Geometric pattern */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-48 h-48">
-                    {/* Concentric circles */}
-                    {[1, 2, 3, 4].map((i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                        transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
-                        className="absolute inset-0 border border-primary/30 rounded-full"
-                        style={{
-                          transform: `scale(${1 + i * 0.3})`,
-                        }}
-                      />
-                    ))}
-                    
-                    {/* Center element */}
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={isInView ? { scale: 1 } : {}}
-                      transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
-                      className="absolute inset-0 m-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center"
-                    >
-                      <span className="text-secondary-dark font-display font-bold text-2xl">K</span>
-                    </motion.div>
-                  </div>
+                {/* Headshot image */}
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="relative w-full h-full"
+                  >
+                    <img
+                      src="/images/kevin-headshot.png"
+                      alt="Kevin D. Franklin"
+                      className="w-full h-full object-contain object-center drop-shadow-2xl"
+                    />
+                  </motion.div>
                 </div>
                 
-                {/* Floating particles */}
-                <div className="absolute inset-0">
-                  {[...Array(6)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-2 h-2 bg-primary/40 rounded-full"
-                      style={{
-                        left: `${20 + (i * 15)}%`,
-                        top: `${30 + (i * 10)}%`,
-                      }}
-                      animate={{
-                        y: [0, -20, 0],
-                        opacity: [0.4, 0.8, 0.4],
-                      }}
-                      transition={{
-                        duration: 3 + i * 0.5,
-                        repeat: Infinity,
-                        delay: i * 0.3,
-                      }}
-                    />
-                  ))}
-                </div>
+                {/* Decorative ring */}
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  className="absolute inset-4 border-2 border-primary/30 rounded-full pointer-events-none"
+                />
+                
+                {/* Corner accents */}
+                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/50" />
+                <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-primary/50" />
+                <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-primary/50" />
+                <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-primary/50" />
               </div>
 
               {/* Corner accents */}
