@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git pull:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nMerge remote branch ''kevindfranklin-site/main'' into local main\n\nResolved conflicts in:\n- .gitignore: Kept remote version\n- src/components/AIAssistant.tsx: Used FRANK with API-based responses\n- src/content/siteConfig.ts: Updated AI assistant name to FRANK\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git fetch:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
