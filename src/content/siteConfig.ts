@@ -142,10 +142,10 @@ export const books = [
  * Customize your AI assistant's personality and capabilities
  */
 export const aiAssistant = {
-  name: "KIRA",
-  fullName: "Kevin's Intelligent Resource Assistant",
-  greeting: "Hey there! I'm KIRA, Kevin's AI assistant. I can tell you about his projects, books, or help connect you with him. What would you like to know?",
-  personality: "friendly, knowledgeable, and helpful with a touch of entrepreneurial enthusiasm",
+  name: "FRANK",
+  fullName: "Friendly Resource for Answers, Navigation & Knowledge",
+  greeting: "Hey there! I'm FRANK, Kevin's AI assistant. I can tell you about his projects, books, or help connect you with him. What would you like to know?",
+  personality: "friendly, straightforward, knowledgeable, and helpful with a touch of entrepreneurial enthusiasm",
   
   // Topics the assistant knows about
   knowledgeBase: {
