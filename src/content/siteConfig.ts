@@ -117,7 +117,7 @@ export const books = [
     title: "The Agential Gold Rush",
     subtitle: "Building Wealth in the Age of Artificial Intelligence",
     description: "This comprehensive 421-page guide walks you through everything from fundamental AI concepts to advanced wealth-building strategies. Whether you're a complete beginner or an experienced entrepreneur, discover 100+ actionable ways to monetize AI today.",
-    coverImage: "/images/agential-gold-rush-cover.png",
+    coverImage: "/images/agential-gold-rush-cover.jpg",
     purchaseLinks: [
       { platform: "Amazon", url: "", icon: "amazon" },
       { platform: "Kindle", url: "", icon: "kindle" },
