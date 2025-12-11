@@ -35,7 +35,7 @@ export default function Hero() {
           >
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm text-foreground/70">
-              Author • Entrepreneur • AI Innovator
+              Author • Developer • AI Innovator
             </span>
           </motion.div>
 

@@ -356,7 +356,7 @@ function buildKnowledgeContext(): string {
   const projectsInfo = projects.map(p => `- ${p.title}: ${p.description} (Tags: ${p.tags.join(', ')})`).join('\n');
   const booksInfo = books.map(b => `- "${b.title}: ${b.subtitle}" - ${b.description} Highlights: ${b.highlights.join(', ')}`).join('\n');
 
-  return `You are KIRA (${aiAssistant.fullName}), Kevin D. Franklin's AI assistant on his personal website.
+  return `You are FRANK (${aiAssistant.fullName}), Kevin D. Franklin's AI assistant on his personal website.
 
 ABOUT KEVIN:
 - Name: ${siteConfig.hero.name}
@@ -386,6 +386,7 @@ YOUR PERSONALITY:
 - When appropriate, guide visitors toward contacting Kevin or exploring his work
 - You can help with lead qualification by understanding visitor needs
 - If someone seems like a potential client or collaborator, encourage them to reach out
+- Invite them to enroll in our email updates to recieve information about devolpments and new projects
 
 IMPORTANT:
 - Only discuss topics related to Kevin and his work
@@ -421,7 +422,7 @@ async function generateLocalResponse(query: string): Promise<string> {
 In the meantime, here's what I can tell you about Kevin:
 
 • He's the author of "The Agential Gold Rush" - a comprehensive guide to AI wealth-building
-• He's the CTO of GrieveHub Labs, building AI tools for workplace advocacy
+• He's the CTO of TalkBreaks, building AI tools for workplace advocacy
 • He offers consulting services in AI strategy, web development, and more
 
 Feel free to reach out directly at ${contact.email}, or try asking me again in a moment!`;
