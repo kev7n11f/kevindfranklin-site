@@ -351,72 +351,79 @@ export default function AIAssistant() {
   );
 }
 
-// Local response generation based on site content
+// Build context about Kevin for the AI
+function buildKnowledgeContext(): string {
+  const projectsInfo = projects.map(p => `- ${p.title}: ${p.description} (Tags: ${p.tags.join(', ')})`).join('\n');
+  const booksInfo = books.map(b => `- "${b.title}: ${b.subtitle}" - ${b.description} Highlights: ${b.highlights.join(', ')}`).join('\n');
+
+  return `You are KIRA (${aiAssistant.fullName}), Kevin D. Franklin's AI assistant on his personal website.
+
+ABOUT KEVIN:
+- Name: ${siteConfig.hero.name}
+- Role: ${siteConfig.hero.tagline}
+- Location: ${aiAssistant.knowledgeBase.location}
+- Bio: ${siteConfig.hero.description}
+- Expertise: ${aiAssistant.knowledgeBase.expertise.join(', ')}
+- Current Ventures: ${aiAssistant.knowledgeBase.currentVentures.join(', ')}
+
+KEVIN'S PROJECTS:
+${projectsInfo}
+
+KEVIN'S BOOKS:
+${booksInfo}
+
+SERVICES OFFERED:
+${contact.services.join(', ')}
+
+CONTACT INFO:
+- Email: ${contact.email}
+${contact.calendlyLink ? `- Calendly: ${contact.calendlyLink}` : ''}
+
+YOUR PERSONALITY:
+- Be ${aiAssistant.personality}
+- Keep responses concise but helpful (2-4 paragraphs max)
+- Use a conversational, warm tone
+- When appropriate, guide visitors toward contacting Kevin or exploring his work
+- You can help with lead qualification by understanding visitor needs
+- If someone seems like a potential client or collaborator, encourage them to reach out
+
+IMPORTANT:
+- Only discuss topics related to Kevin and his work
+- If asked about unrelated topics, politely redirect to Kevin's expertise
+- Never make up information - if unsure, suggest they contact Kevin directly`;
+}
+
+// Generate response using Claude API
 async function generateLocalResponse(query: string): Promise<string> {
-  const q = query.toLowerCase();
-  
-  // Small delay to feel more natural
-  await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 500));
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: query,
+        context: buildKnowledgeContext(),
+      }),
+    });
 
-  // Book-related queries
-  if (q.includes("book") || q.includes("agential") || q.includes("gold rush") || q.includes("read") || q.includes("buy")) {
-    const book = books[0];
-    return `Kevin's book "${book.title}: ${book.subtitle}" is a comprehensive ${aiAssistant.knowledgeBase.book.pages}-page guide to building wealth in the AI era.\n\n${book.description}\n\nKey highlights include:\n${book.highlights.map(h => `• ${h}`).join('\n')}\n\nWould you like me to tell you more about specific topics covered in the book, or help you find where to purchase it?`;
+    if (!response.ok) {
+      throw new Error('API request failed');
+    }
+
+    const data = await response.json();
+    return data.response;
+  } catch (error) {
+    console.error('Error calling AI API:', error);
+    // Fallback to a helpful default response
+    return `I apologize, but I'm having a brief technical moment! 😅
+
+In the meantime, here's what I can tell you about Kevin:
+
+• He's the author of "The Agential Gold Rush" - a comprehensive guide to AI wealth-building
+• He's the CTO of GrieveHub Labs, building AI tools for workplace advocacy
+• He offers consulting services in AI strategy, web development, and more
+
+Feel free to reach out directly at ${contact.email}, or try asking me again in a moment!`;
   }
-
-  // GrieveHub queries
-  if (q.includes("grievehub") || q.includes("grieve") || q.includes("union") || q.includes("workplace") || q.includes("contract")) {
-    const grievehub = projects.find(p => p.id === "grievehub");
-    return `GrieveHub Labs is Kevin's latest venture as CTO and co-founder. ${grievehub?.description}\n\nThe platform uses AI to help workplace organization members navigate complex legal documents and processes that would typically require expensive legal consultation.\n\nWould you like to know more about the technology behind GrieveHub, or Kevin's role as CTO?`;
-  }
-
-  // Too Humble Couture queries
-  if (q.includes("humble") || q.includes("couture") || q.includes("clothing") || q.includes("fashion") || q.includes("streetwear")) {
-    const humble = projects.find(p => p.id === "too-humble-couture");
-    return `Too Humble Couture is Kevin's fashion brand! ${humble?.description}\n\nIt's a creative outlet that combines Kevin's entrepreneurial spirit with unique, playful designs. The brand features premium streetwear with a tongue-in-cheek attitude.\n\nWant to know more about the brand or where to shop?`;
-  }
-
-  // Projects general queries
-  if (q.includes("project") || q.includes("work") || q.includes("build") || q.includes("venture") || q.includes("company")) {
-    const projectList = projects.map(p => `• ${p.title}: ${p.description.split('.')[0]}`).join('\n');
-    return `Kevin is currently working on several exciting ventures:\n\n${projectList}\n\nHis main focus right now is GrieveHub Labs, where he serves as CTO. Which project would you like to learn more about?`;
-  }
-
-  // AI services/consulting queries
-  if (q.includes("service") || q.includes("help") || q.includes("consult") || q.includes("hire") || q.includes("work with")) {
-    return `Kevin offers several services:\n\n${contact.services.map(s => `• ${s}`).join('\n')}\n\nWith his expertise in AI, web development, and business automation, Kevin can help businesses leverage technology for growth and efficiency.\n\nWould you like me to help you get in touch with Kevin about a specific service?`;
-  }
-
-  // About Kevin queries
-  if (q.includes("who") || q.includes("about") || q.includes("kevin") || q.includes("background") || q.includes("bio")) {
-    return `${siteConfig.hero.name} is an ${siteConfig.hero.tagline.toLowerCase()} based in ${aiAssistant.knowledgeBase.location}.\n\nHis areas of expertise include:\n${aiAssistant.knowledgeBase.expertise.map(e => `• ${e}`).join('\n')}\n\nCurrently, he's involved in:\n${aiAssistant.knowledgeBase.currentVentures.map(v => `• ${v}`).join('\n')}\n\nWhat aspect of Kevin's work interests you most?`;
-  }
-
-  // Contact queries
-  if (q.includes("contact") || q.includes("email") || q.includes("reach") || q.includes("talk") || q.includes("connect")) {
-    return `You can reach Kevin through:\n\n• Email: ${contact.email}\n• The contact form on this website\n${contact.calendlyLink ? `• Schedule a call via Calendly\n` : ''}\nHe typically responds within 24-48 hours for business inquiries.\n\nWould you like me to help you draft a message, or is there something specific you'd like to discuss with Kevin?`;
-  }
-
-  // Location queries
-  if (q.includes("where") || q.includes("location") || q.includes("based") || q.includes("live") || q.includes("louisiana")) {
-    return `Kevin is based in ${aiAssistant.knowledgeBase.location}. While he operates primarily from Louisiana, he works with clients and collaborators across the globe remotely.\n\nIs there something specific you'd like to know about Kevin's work or availability?`;
-  }
-
-  // AI-related queries
-  if (q.includes("ai") || q.includes("artificial intelligence") || q.includes("machine learning") || q.includes("automation")) {
-    return `AI is Kevin's primary focus! He's deeply passionate about helping others understand and capitalize on the AI revolution.\n\nHis expertise includes:\n• Building AI-powered business solutions\n• Consulting on AI strategy and implementation\n• Teaching AI monetization through his book\n• Developing practical AI tools like GrieveHub\n\nHis book "The Agential Gold Rush" covers 100+ ways to build wealth using AI. Would you like to know more about specific AI topics or how Kevin can help with your AI needs?`;
-  }
-
-  // Greeting responses
-  if (q.includes("hello") || q.includes("hi") || q.includes("hey") || q === "yo" || q.includes("sup")) {
-    return `Hey there! Great to chat with you! 👋\n\nI'm ${aiAssistant.name}, Kevin's AI assistant. I can help you learn about:\n• Kevin's book "The Agential Gold Rush"\n• His ventures like GrieveHub Labs and Too Humble Couture\n• His consulting services\n• How to get in touch\n\nWhat would you like to know?`;
-  }
-
-  // Thank you responses
-  if (q.includes("thank") || q.includes("thanks") || q.includes("appreciate")) {
-    return `You're very welcome! 😊 It's my pleasure to help.\n\nIs there anything else you'd like to know about Kevin's work, projects, or services? I'm here to help!`;
-  }
-
-  // Default response
-  return `That's a great question! While I have extensive knowledge about Kevin's work, I want to make sure I give you the most accurate answer.\n\nHere are some things I can definitely help you with:\n${aiAssistant.suggestions.map(s => `• ${s}`).join('\n')}\n\nOr if you'd prefer, I can help you get in touch with Kevin directly at ${contact.email}.\n\nWhat would you like to explore?`;
 }
