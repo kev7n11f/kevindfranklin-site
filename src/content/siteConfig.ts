@@ -20,6 +20,7 @@ export const siteConfig = {
     linkedin: "",
     github: "https://github.com/kev7n11f",
     instagram: "",
+    amazon: "https://www.amazon.com/stores/Kevin-D.-Franklin/author/B0FTT5L58J",
     email: "kevin@kevindfranklin.com",
   },
 
@@ -60,12 +61,12 @@ export const siteConfig = {
  */
 export const projects = [
   {
-    id: "grievehub",
-    title: "GrieveHub Labs",
+    id: "talkbreaks",
+    title: "TalkBreaks",
     description: "AI-powered platform helping workplace organization members understand contracts and file grievances. Making legal processes accessible to everyone.",
     tags: ["AI", "Legal Tech", "SaaS"],
-    link: "", // Add URL when live
-    image: "/images/grievehub.png", // Add image or leave empty
+    link: "https://talkbreaks.com",
+    image: "/images/talkbreaks-logo.png",
     featured: true,
   },
   {
@@ -73,8 +74,8 @@ export const projects = [
     title: "The Agential Gold Rush",
     description: "A comprehensive 421-page guide covering 100+ AI business opportunities, from beginner content creation to advanced investment strategies.",
     tags: ["Book", "AI Business", "Entrepreneurship"],
-    link: "", // Add Amazon/purchase link
-    image: "/images/agential-gold-rush.png",
+    link: "https://a.co/d/7ta79rp",
+    image: "/images/agential-gold-rush-cover.jpg",
     featured: true,
   },
   {
@@ -82,26 +83,35 @@ export const projects = [
     title: "Too Humble Couture",
     description: "Premium streetwear brand with tongue-in-cheek messaging. E-commerce platform with subscription functionality and original designs.",
     tags: ["Fashion", "E-commerce", "Brand"],
-    link: "", // Add store URL
-    image: "/images/too-humble.png",
+    link: "https://toohumblecouture.com",
+    image: "/images/too-humble-couture.png",
     featured: true,
   },
   {
-    id: "cunningham-business",
-    title: "Cunningham Business Systems",
-    description: "Web development and business operations for this veteran-owned office equipment company in Alexandria, Louisiana.",
-    tags: ["Web Dev", "Business Ops", "Consulting"],
-    link: "", // Add website URL
-    image: "/images/cunningham.png",
-    featured: false,
+    id: "autodevelop",
+    title: "AutoDevelop.ai",
+    description: "A resource built for new founders and developers to use AI to develop their ideas. Turning concepts into reality with AI-assisted development.",
+    tags: ["AI", "Developer Tools", "Founders"],
+    link: "https://autodevelop.ai",
+    image: "",
+    featured: true,
   },
   {
     id: "themebot-park",
     title: "ThemeBotPark",
-    description: "AI companion platform rebuilt with modern Next.js architecture. Interactive AI experiences for users.",
-    tags: ["AI", "Platform", "Next.js"],
-    link: "", // Add URL
-    image: "/images/themebot.png",
+    description: "Platform for AI agent personas where anyone can be a creator and offer their persona creations as subscriptions.",
+    tags: ["AI", "Platform", "Creators"],
+    link: "https://themebotpark.com",
+    image: "",
+    featured: false,
+  },
+  {
+    id: "mythological-thinker",
+    title: "The Mythological Thinker",
+    description: "Upcoming book exploring the intersection of classical wisdom and modern thinking. Pre-order now, releasing March 10th, 2026.",
+    tags: ["Book", "Philosophy", "Coming Soon"],
+    link: "https://a.co/d/ihhD8vY",
+    image: "/images/mythological-thinker-cover.jpg",
     featured: false,
   },
 ];
@@ -119,8 +129,8 @@ export const books = [
     description: "This comprehensive 421-page guide walks you through everything from fundamental AI concepts to advanced wealth-building strategies. Whether you're a complete beginner or an experienced entrepreneur, discover 100+ actionable ways to monetize AI today.",
     coverImage: "/images/agential-gold-rush-cover.jpg",
     purchaseLinks: [
-      { platform: "Amazon", url: "", icon: "amazon" },
-      { platform: "Kindle", url: "", icon: "kindle" },
+      { platform: "Amazon", url: "https://a.co/d/7ta79rp", icon: "amazon" },
+      { platform: "Kindle", url: "https://a.co/d/7ta79rp", icon: "kindle" },
       { platform: "Audiobook", url: "", icon: "headphones" },
     ],
     highlights: [
@@ -129,10 +139,24 @@ export const books = [
       "Real-world case studies",
       "Step-by-step implementation guides",
     ],
-    testimonials: [
-      // Add testimonials as you receive them
-      // { quote: "...", author: "Name", title: "Title" },
+    testimonials: [],
+  },
+  {
+    id: "mythological-thinker-book",
+    title: "The Mythological Thinker",
+    subtitle: "Pre-Order Now • Releasing March 10th, 2026",
+    description: "An exploration of classical wisdom and modern thinking. This upcoming work bridges ancient mythology with contemporary philosophy, offering fresh perspectives on timeless questions about human nature, purpose, and potential.",
+    coverImage: "/images/mythological-thinker-cover.jpg",
+    purchaseLinks: [
+      { platform: "Pre-Order on Amazon", url: "https://a.co/d/ihhD8vY", icon: "amazon" },
     ],
+    highlights: [
+      "Classical wisdom meets modern thinking",
+      "Philosophical exploration",
+      "Timeless insights for today",
+      "Available March 2026",
+    ],
+    testimonials: [],
   },
 ];
 
@@ -152,7 +176,7 @@ export const aiAssistant = {
     owner: "Kevin D. Franklin",
     location: "Alexandria, Louisiana",
     expertise: ["AI & Machine Learning", "Entrepreneurship", "Web Development", "Business Automation", "Writing & Publishing"],
-    currentVentures: ["GrieveHub Labs (CTO & Co-founder)", "Too Humble Couture (Founder)", "Cunningham Business Systems (Web Dev & Operations)"],
+    currentVentures: ["TalkBreaks (Co-founder)", "Too Humble Couture (Founder)", "AutoDevelop.ai (Founder)", "ThemeBotPark (Founder)"],
     book: {
       title: "The Agential Gold Rush: Building Wealth in the Age of Artificial Intelligence",
       pages: 421,
