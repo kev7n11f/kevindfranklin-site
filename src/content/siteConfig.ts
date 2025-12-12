@@ -66,7 +66,7 @@ export const projects = [
     description: "AI-powered platform helping workplace organization members understand contracts. Making legal processes accessible to everyone.",
     tags: ["AI", "Legal Tech", "SaaS"],
     link: "https://talkbreaks.com",
-    image: "/public/images/talkbreaks-logo.png",
+    image: "/images/talkbreaks-logo.png",
     featured: true,
   },
   {
@@ -75,7 +75,7 @@ export const projects = [
     description: "A comprehensive 421-page guide covering 100+ AI business opportunities, from beginner content creation to advanced investment strategies.",
     tags: ["Book", "AI Business", "Entrepreneurship"],
     link: "https://a.co/d/7ta79rp",
-    image: "/public/images/agential-gold-rush-cover.png",
+    image: "/images/agential-gold-rush-cover.png",
     featured: true,
   },
   {
@@ -84,7 +84,7 @@ export const projects = [
     description: "Premium streetwear brand with tongue-in-cheek messaging. E-commerce platform with subscription functionality and original designs.",
     tags: ["Fashion", "E-commerce", "Brand"],
     link: "https://toohumblecouture.com",
-    image: "/public/images/too-humble-couture.png",
+    image: "/images/too-humble-couture.png",
     featured: true,
   },
   {
@@ -93,7 +93,7 @@ export const projects = [
     description: "A resource built for new founders and developers to use AI to develop their ideas. Turning concepts into reality with AI-assisted development.",
     tags: ["AI", "Developer Tools", "Founders"],
     link: "https://autodevelop.ai",
-    image: "/public/images/autodevelop-logo.jpg",
+    image: "/images/autodevelop-logo.jpg",
     featured: true,
   },
   {
@@ -102,7 +102,7 @@ export const projects = [
     description: "Platform for AI agent personas where anyone can be a creator and offer their persona creations as subscriptions.",
     tags: ["AI", "Platform", "Creators"],
     link: "https://themebotpark.com",
-    image: "/public/images/tellitlikeitis.png",
+    image: "/images/tellitlikeitis.png",
     featured: false,
   },
   {
@@ -111,7 +111,7 @@ export const projects = [
     description: "Upcoming book exploring the intersection of classical wisdom and modern thinking. Pre-order now, releasing March 10th, 2026.",
     tags: ["Book", "Philosophy", "Coming Soon"],
     link: "https://a.co/d/ihhD8vY",
-    image: "/public/images/mythological-thinker-cover.jpg",
+    image: "/images/mythological-thinker-cover.jpg",
     featured: false,
   },
 ];
@@ -127,7 +127,7 @@ export const books = [
     title: "The Agential Gold Rush",
     subtitle: "Building Wealth in the Age of Artificial Intelligence",
     description: "This comprehensive 421-page guide walks you through everything from fundamental AI concepts to advanced wealth-building strategies. Whether you're a complete beginner or an experienced entrepreneur, discover 100+ actionable ways to monetize AI today.",
-    coverImage: "/public/images/agential-gold-rush-cover.png",
+    coverImage: "/images/agential-gold-rush-cover.png",
     purchaseLinks: [
       { platform: "Amazon", url: "https://a.co/d/7ta79rp", icon: "amazon" },
       { platform: "Kindle", url: "https://a.co/d/7ta79rp", icon: "kindle" },
@@ -146,7 +146,7 @@ export const books = [
     title: "The Mythological Thinker",
     subtitle: "Pre-Order Now • Releasing March 10th, 2026",
     description: "An exploration of classical wisdom and modern thinking. This upcoming work bridges ancient mythology with contemporary philosophy, offering fresh perspectives on timeless questions about human nature, purpose, and potential.",
-    coverImage: "/public/images/mythological-thinker-cover.jpg",
+    coverImage: "/images/mythological-thinker-cover.jpg",
     purchaseLinks: [
       { platform: "Pre-Order on Amazon", url: "https://a.co/d/ihhD8vY", icon: "amazon" },
     ],
