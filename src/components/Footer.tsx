@@ -91,8 +91,22 @@ export default function Footer() {
           </motion.button>
         </div>
 
+        {/* Legal links */}
+        <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap items-center justify-center gap-6 text-sm">
+          <a href="/privacy" className="text-foreground/40 hover:text-primary transition-colors">
+            Privacy Policy
+          </a>
+          <a href="/terms" className="text-foreground/40 hover:text-primary transition-colors">
+            Terms of Service
+          </a>
+          <span className="text-foreground/20">•</span>
+          <span className="text-foreground/40">
+            As an Amazon Associate, I earn from qualifying purchases.
+          </span>
+        </div>
+
         {/* Made with love */}
-        <div className="mt-8 pt-8 border-t border-white/5 text-center">
+        <div className="mt-6 pt-6 border-t border-white/5 text-center">
           <p className="text-xs text-foreground/30 flex items-center justify-center gap-1">
             Made with <Heart className="w-3 h-3 text-primary fill-primary" /> and AI
           </p>
