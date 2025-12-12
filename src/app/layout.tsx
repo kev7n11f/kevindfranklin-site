@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/content/siteConfig";
 import Navbar from "@/components/Navbar";
 import AIAssistant from "@/components/AIAssistant";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -17,10 +18,11 @@ export const metadata: Metadata = {
     "AI Entrepreneur",
     "The Agential Gold Rush",
     "AI Business",
-    "GrieveHub Labs",
+    "TalkBreaks",
     "AI Author",
     "Alexandria Louisiana",
     "Too Humble Couture",
+    "The Mythological Thinker",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -70,6 +72,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <AIAssistant />
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
