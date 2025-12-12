@@ -118,13 +118,21 @@ function ProjectCard({
       {/* Top gradient accent */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      {/* Image placeholder */}
+      {/* Image or placeholder */}
       <div className="aspect-video bg-gradient-to-br from-secondary-light to-secondary rounded-xl mb-6 overflow-hidden relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-4xl font-display font-bold text-primary/20">
-            {project.title.charAt(0)}
-          </span>
-        </div>
+        {project.image ? (
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-contain bg-secondary-light p-4"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-4xl font-display font-bold text-primary/20">
+              {project.title.charAt(0)}
+            </span>
+          </div>
+        )}
         
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -188,11 +196,19 @@ function SmallProjectCard({
       transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
       className="group flex items-center gap-4 p-4 glass rounded-xl hover:border-primary/30 transition-all duration-300"
     >
-      {/* Icon */}
-      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shrink-0">
-        <span className="text-lg font-display font-bold text-primary">
-          {project.title.charAt(0)}
-        </span>
+      {/* Icon or Image */}
+      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shrink-0 overflow-hidden">
+        {project.image ? (
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-contain p-1"
+          />
+        ) : (
+          <span className="text-lg font-display font-bold text-primary">
+            {project.title.charAt(0)}
+          </span>
+        )}
       </div>
 
       {/* Content */}
