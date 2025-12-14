@@ -7,12 +7,6 @@ import AIAssistant from "@/components/AIAssistant";
 import CookieConsent from "@/components/CookieConsent";
 import Script from "next/script";
 
-<Script
-  src="https://umami-analytics-kohl.vercel.app/script.js"
-  data-website-id="9b342ab8-8f78-4555-b4c3-bdc2371bda9c"
-  strategy="afterInteractive"
-/>
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -75,6 +69,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <Script
+          src="https://umami-analytics-kohl.vercel.app/script.js"
+          data-website-id="9b342ab8-8f78-4555-b4c3-bdc2371bda9c"
+          strategy="afterInteractive"
+          />
+      </head>
       <body className="antialiased noise-overlay">
         <Navbar />
         <main>{children}</main>
