@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     "Alexandria Louisiana",
     "Too Humble Couture",
     "The Mythological Thinker",
-    "AutoDevelop.ai",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -62,26 +61,6 @@ export const metadata: Metadata = {
   },
 };
 
-// app/layout.tsx
-import Script from 'next/script'
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <head>
-        {process.env.NODE_ENV === 'production' && (
-          <Script
-            src={process.env.NEXT_PUBLIC_UMAMI_URL + '/script.js'}
-            data-website-id={process.env.NEXT_PUBLIC_UMAMI_KEVINDFRANKLIN_ID}
-            strategy="afterInteractive"
-          />
-        )}
-      </head>
-      <body>{children}</body>
-    </html>
-  )
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -99,3 +78,11 @@ export default function RootLayout({
     </html>
   );
 }
+
+import Script from 'next/script'
+
+<Script
+  src="https://umami-analytics-kohl.vercel.app/script.js"
+  data-website-id="9b342ab8-8f78-4555-b4c3-bdc2371bda9c"
+  strategy="afterInteractive"
+/>
